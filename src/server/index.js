@@ -1,22 +1,7 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer } = require('apollo-server');
 
-const typeDefs = gql`
-  schema {
-    query: Query
-    mutation: Mutation
-  }
+const schema = require('./schema');
 
-  type Query {
-    _: Boolean
-  }
-
-  type Mutation {
-    _: Boolean
-  }
-`;
-
-const resolvers = {};
-
-const createServer = () => new ApolloServer({ typeDefs, resolvers });
+const createServer = () => new ApolloServer({ schema });
 
 module.exports = { createServer };
