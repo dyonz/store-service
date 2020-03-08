@@ -1,5 +1,7 @@
 const { gql } = require('apollo-server');
 
+const storeTypeDefs = require('./store');
+
 const linkTypeDefs = gql`
   schema {
     query: Query
@@ -18,6 +20,6 @@ const linkTypeDefs = gql`
   scalar JSON
 `;
 
-const typeDefs = [linkTypeDefs];
+const typeDefs = [linkTypeDefs, storeTypeDefs];
 
 module.exports = typeDefs;
